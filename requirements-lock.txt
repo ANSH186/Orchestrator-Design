@@ -1,0 +1,8 @@
+# Verified environment used for the completed run (Python 3.13.7, Windows).
+# Install the project itself with: python -m pip install -e .
+pandas==3.0.5
+pydantic==2.13.5
+pydantic-settings==2.15.0
+python-dotenv==1.2.3
+langgraph==1.2.16
+pytest==8.4.2

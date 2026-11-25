@@ -1,0 +1,18 @@
+{
+  "path": "output\\submission.csv",
+  "passed": true,
+  "row_count": 2000,
+  "checks": [
+    "header is exactly thread_id,label",
+    "CSV has exactly two columns in the right order",
+    "row count is 2000",
+    "thread IDs are unique",
+    "thread ID set matches the input exactly",
+    "submission order matches input order",
+    "all labels match the official ACTION:REASON: contract",
+    "all COUNTER labels carry a whole-number INR price",
+    "all non-COUNTER labels end with the empty final field",
+    "CSV reopens successfully with uniform two-column rows"
+  ],
+  "errors": []
+}
