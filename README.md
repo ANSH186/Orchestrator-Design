@@ -384,6 +384,28 @@ and failure handling only; live provider behavior remains unverified.
   offer, label and thread identity
 - full 1-worker and 8-worker labels identical; 0 mismatches
 
+### Residual error analysis
+
+There were no mismatches on the 40 worked examples, so residual risk is analysed by
+ambiguity class rather than by observed sample error:
+
+- **Five subscription threads** state a per-seat/per-server/per-guard price “for this
+  order” without a billing period. The baseline follows the explicit playbook and emits
+  `ESCALATE:MISSING_INFO:`. A variant that infers the category period would change these
+  five labels.
+- **Ten approval-limit threads** quote a billing period that differs from the category’s
+  normalized period. The baseline applies the category period; a variant using the quoted
+  period would change these ten labels.
+- **Unseen prose and languages** are the main generalization risk. Deterministic
+  extraction is tuned to the supplied generated grammar; the optional LLM path is the
+  designed fallback but was not used for the selected run.
+- **Security edge cases** such as Unicode homoglyphs are covered by normalization and
+  adversarial tests, but no finite rule set can prove the absence of every evasion.
+
+The first two classes are documented interpretation choices, not silent arithmetic
+errors. Offline variants that exploit them were generated and validated but were not
+selected; the baseline keeps the most literal playbook reading.
+
 ### Important limitation
 
 There is **no genuine blind holdout**. All 40 official labels were inspected during
