@@ -20,7 +20,7 @@ All commands below are PowerShell, run from the project root
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install -e .
+python -m pip install -e ".[dev]"
 ```
 
 If PowerShell blocks script activation:
